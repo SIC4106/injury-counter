@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Days Since Last Injury</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      text-align: center; 
+      margin-top: 100px;
+      font-size: 48px;
+      background-color: #f8f9fa;
+    }
+  </style>
+</head>
+<body>
+  <div id="counter">Loading...</div>
+
+  <script>
+    // Change this date to your actual last injury date
+    const lastInjuryDate = new Date("2024-11-15");
+
+    const today = new Date();
+    const diffTime = Math.abs(today - lastInjuryDate);
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+    document.getElementById("counter").textContent = `${diffDays} Days Since Last Injury`;
+  </script>
+</body>
+</html>
