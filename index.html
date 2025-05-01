@@ -3,13 +3,20 @@
 <head>
   <title>Injury-Free Days</title>
   <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+    }
     body {
       font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      color: #28a745;
+      color: #28a745; /* Green text */
       font-size: 120px;
       text-align: center;
-      margin-top: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
   </style>
 </head>
@@ -17,7 +24,7 @@
   <div id="counter">0</div>
 
   <script>
-    const lastInjuryDate = new Date("2024-11-15"); // Change this to your actual date
+    const lastInjuryDate = new Date("2024-11-15"); // Update as needed
     const today = new Date();
     const diffTime = today - lastInjuryDate;
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
@@ -25,3 +32,4 @@
   </script>
 </body>
 </html>
+
