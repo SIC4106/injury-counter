@@ -27,14 +27,19 @@
 <body>
   <div id="counter">0</div>
 
-  <script>
-    const lastInjuryDate = new Date("2024-12-19"); // Update this
-    const today = new Date();
-    const diffTime = today - lastInjuryDate;
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-    document.getElementById("counter").textContent = diffDays;
-  </script>
-</body>
-</html>
+<script>
+  // Explicitly create date in local time (year, monthIndex, day)
+  const lastInjuryDate = new Date(2024, 11, 19); // monthIndex 11 = December
+  const today = new Date();
+
+  // Zero out time portions so only full days are compared
+  lastInjuryDate.setHours(0,0,0,0);
+  today.setHours(0,0,0,0);
+
+  const diffTime = today - lastInjuryDate;
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+  document.getElementById("counter").textContent = diffDays;
+</script>
 
 
