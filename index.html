@@ -8,19 +8,24 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: transparent;
+      background: #08233f;
+      overflow: hidden;
     }
 
     body {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      color: #28a745; /* Green text */
+      color: #28a745;
       font-size: 180px;
       text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+    }
+
+    #counter {
+      line-height: 1;
     }
   </style>
 </head>
@@ -29,11 +34,8 @@
 
 <script>
   const MS_PER_DAY = 1000 * 60 * 60 * 24;
-
-  // 🔧 CHANGE ONLY THIS DATE (YYYY-MM-DD)
   const LAST_INJURY_DATE = '2025-12-17';
 
-  // Parse as UTC midnight to avoid timezone / DST issues
   const lastInjuryUTC = Date.parse(`${LAST_INJURY_DATE}T00:00:00Z`);
 
   const now = new Date();
@@ -43,13 +45,13 @@
     now.getUTCDate()
   );
 
-  // Inclusive calendar-day count
   let daysInjuryFree =
     Math.floor((todayUTC - lastInjuryUTC) / MS_PER_DAY) + 1;
 
-  // Safety guard
   if (daysInjuryFree < 0) daysInjuryFree = 0;
 
   document.getElementById("counter").textContent = daysInjuryFree;
 </script>
+</body>
+</html>
 
